@@ -1,0 +1,52 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+@model IList<MinuteMeals.Models.Recipe>
+
+<div class="text-center">
+	<h1>Recipes:</h1>
+</div>
+
+<div class="receptenLijst">
+	@if (Model == null || !Model.Any())
+	{
+		<p>No recipes to show</p>
+	}
+	else
+	{
+		foreach (var recipe in Model)
+		{
+			<div class="recept">
+				<h1>@recipe.Name</h1>
+				<p>Prep time: @recipe.CookingTimeInMinutes minutes</p>
+				<a asp-controller="Home" asp-action="Details" asp-route-id="@recipe.Id">Show recipe</a>
+			</div>
+		}
+	}
+</div>
+
+<style>
+    .receptenLijst {
+        background-color: #f7f7f7;
+        padding: 50px;
+        border-radius: 5px;
+    }
+
+	.recept {
+		background-color: #ededed;
+		border: 1px solid #ccc;
+		padding: 15px;
+		margin-bottom: 10px;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+	.recept h1{
+		padding-bottom: 5px;
+	}
+
+	.recept h3 {
+		margin: 0;
+		font-size: 1.2em;
+	}
+</style>
