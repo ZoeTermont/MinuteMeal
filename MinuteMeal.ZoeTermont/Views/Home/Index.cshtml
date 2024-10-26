@@ -18,15 +18,25 @@
 		foreach (var recipe in Model)
 		{
 			<div class="recept">
-				<h1>@recipe.Name</h1>
+				<a asp-controller="Home" asp-action="Details" asp-route-id="@recipe.Id">
+					<h2>@recipe.Name</h2>
+					<p>Preparation Time: @recipe.CookingTimeInMinutes minutes</p>
+				</a>
+				
+
+				<!--<h1>@recipe.Name</h1>
 				<p>Prep time: @recipe.CookingTimeInMinutes minutes</p>
-				<a asp-controller="Home" asp-action="Details" asp-route-id="@recipe.Id">Show recipe</a>
+				<a asp-controller="Home" asp-action="Details" asp-route-id="@recipe.Id">Show recipe</a>-->
 			</div>
 		}
 	}
 </div>
 
 <style>
+	.recept a {
+		text-decoration: none; 
+		color: black;
+	}
     .receptenLijst {
         background-color: #f7f7f7;
         padding: 50px;

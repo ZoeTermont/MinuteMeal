@@ -31,10 +31,6 @@ namespace MinuteMeal.ZoeTermont.Controllers
             }
             return View(recipe);
         }
-
-
-        
-
         
     }
 }
